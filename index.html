@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+        :root {
+            --main-color: #736454;
+            --primary-color: #eff1f3;
+            --bg-color: #5a4d3e;
+            --hover: #5a4d3e;
+            --black: #222;
+            --gray: #444;
+            --light-gray: #a6a9ab;
+            --dark-gray: #ccc;
+            --darker-gray: #1a1a1a;
+            --white: #fff;
+            --border: .1rem solid #aaa;
+            --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .1);
+        }
+
+        * {
+            font-family: 'Aboreto', cursive;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            transition: all .4s cubic-bezier(0.43, 1.1, .62, 1.08);
+            text-transform: capitalize;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+        }
+
+        html::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        html::-webkit-scrollbar-track {
+            background-color: var(--white);
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background-color: var(--main-color);
+        }
+
+        section {
+            padding: 2rem 7%;
+        }
+
+        .heading {
+            text-align: center;
+            text-transfrom: capitalize;
+            color: var(--main-color);
+            margin-top: 4rem;
+            margin-bottom: 3rem;
+            font-size: 4rem;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            display: inline-block;
+            background: var(--main-color);
+            border: var(--main-color);
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem 3rem;
+        }
+
+        .btn:hover {
+            background: var(--bg-color);
+        }
+
+        /* header */
+        .header {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary-color);
+            z-index: 1000;
+        }
+
+        .header .logo {
+            font-size: 2.5rem;
+            font-weight: bolder;
+            color: var(--black);
+        }
+
+        .header .logo i {
+            color: var(--main-color);
+            padding-right: .5rem;
+        }
+
+        .header .navbar a {
+            font-size: 2rem;
+            margin-left: 2.8rem;
+            color: var(--black);
+        }
+
+        .header .navbar a:hover {
+            padding-bottom: .5rem;
+            color: var(--main-color);
+            border-bottom: 0.1rem solid var(--main-color);
+        }
+
+        .header #menu-btn {
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: var(--black);
+            display: none;
+        }
+
+        /* home */
+        @keyframes fadeIn {
+            0% {
+                transform: translateY(-4rem) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .home {
+            padding: 0;
+        }
+
+        .home .slide {
+            min-height: 100vh;
+            background-size: cover !important;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .home .slide .content {
+            text-align: center;
+            margin: 0 auto;
+            width: 70rem;
+            padding-left: 16rem;
+            display: none;
+        }
+
+        .home .slide .content h3 {
+            font-size: 6rem;
+            text-transform: uppercase;
+            color: var(--main-color);
+            line-height: 1;
+            padding: 2rem 0;
+            animation: fadeIn 0.4s cubic-bezier(.54, 1.3, .63, 1.34) .2s backwards;
+        }
+
+        .home .slide .content .btn {
+            animation: fadeIn 0.4s cubic-bezier(.54, 1.3, .63, 1.34) .4s backwards;
+        }
+
+        .home .swiper-slide-active .content {
+            display: inline-block;
+        }
+
+        .home .swiper-button-next,
+        .home .swiper-button-prev {
+            height: 5rem;
+            width: 5rem;
+            line-height: 5rem;
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .home .swiper-button-next:hover,
+        .home .swiper-button-prev:hover {
+            background: var(--main-color);
+            color: var(--white);
+        }
+
+        .home .swiper-button-next::after,
+        .home .swiper-button-prev::after {
+            font-size: 2rem;
+        }
+
+        .about .row {
+            display: flex;
+            align-items: center;
+            flex-warp: wrap;
+        }
+
+        .about .row .image {
+            flex: 1 1 39rem;
+
+        }
+
+        .about .row .image img {
+            width: 100%;
+        }
+
+        .about .row .content {
+            flex: 1 1 51rem;
+            padding: 8rem;
+        }
+
+        .about .row .content h3 {
+            font-size: 3.5rem;
+            color: var(--main-color);
+            padding: 2rem 0;
+        }
+
+        .about .row .content p {
+            font-size: 1.6rem;
+            color: var(--gray);
+            padding: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .menu {
+            background: var(--primary-color);
+        }
+
+        .menu .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 1.5rem;
+        }
+
+        .menu .box-container .box .image {
+            height: 30rem;
+            overflow: hidden;
+        }
+
+        .menu .box-container .box .image img {
+            object-fit: cover;
+        }
+
+        .menu .box-container .box .content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .menu .box-container .box .content .title {
+            font-size: 2.5rem;
+            color: var(--main-color);
+        }
+
+        .menu .box-container .box .content p {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            padding: 1rem 0;
+        }
+
+        .menu .box-container .box .content .price {
+            color: var(--main-color);
+            font-size: 2.5rem;
+            padding: .5rem 0;
+        }
+
+        .menu .box-container .box .content .price {}
+
+        .menu .box-container .box .content .price .tips {
+            font-size: 1.8rem;
+            position: absolute;
+            margin-top: 0;
+            margin-left: .5rem;
+            padding-right: 2.5rem;
+        }
+
+        .menu .box-container .box .content .price .sale {
+            display: inline;
+            padding-left: 3rem;
+        }
+
+        .menu .box-container .box .content .price .sale .discount {
+            font-size: 1.5rem;
+            text-decoration: solid;
+            font-weight: lighter;
+        }
+
+        .gallery .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery .gallery-container .box {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery .gallery-container .box img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .gallery .gallery-container .box:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery .gallery-container .box .icon {
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            display: none;
+        }
+
+        .gallery .gallery-container .box .icon i {
+            font-size: 6rem;
+            color: var(--white);
+        }
+
+        .gallery .gallery-container .box:hover .icon {
+            display: flex;
+        }
+
+        .reviews {
+            background-color: var(--primary-color);
+        }
+
+        .reviews .slide {
+            text-align: center;
+        }
+
+        .reviews .slide p {
+            font-size: 1.5rem;
+            line-height: 2;
+            color: var(--light-gray);
+            background: var(--primary-color);
+            border: .1rem solid var(--main-color);
+            margin-bottom: 3rem;
+            padding: 2rem;
+        }
+
+        .reviews .slide p::before {
+            content: '';
+            position: absolute;
+            bottom: 17.1rem;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            background: var(--primary-color);
+            border-bottom: .1rem solid var(--main-color);
+            border-right: .1rem solid var(--main-color);
+            height: 2rem;
+            width: 2rem;
+        }
+
+        .reviews .slide img {
+            height: 7rem;
+            width: 7rem;
+            border-radius: 50%;
+        }
+
+        .reviews .slide h3 {
+            font-size: 2.2rem;
+            color: var(--black);
+            padding: .5rem 0;
+        }
+
+        .reviews .slide .stars {
+            font-size: 1.2rem;
+            color: var(--main-color);
+            margin-bottom: 3rem;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--main-color);
+        }
+
+        .order form {
+            padding: 2rem;
+            background-color: var(--primary-color);
+            box-shadow: var(--box-shadow);
+        }
+
+        .order form .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .order form .box-container .box {
+            flex: 1 1 41rem;
+        }
+
+        .order form .box-container .box .input-box input,
+        .order form .box-container .box .input-box textarea {
+            width: 100%;
+            margin: 1rem 0;
+            padding: 1.2rem 1.4rem;
+            font-size: 1.7rem;
+            color: var(--black);
+            border: var(--border);
+        }
+
+        .order form .box-container .box .input-box input::placeholder,
+        .order form .box-container .box .input-box textarea::placeholder {
+            text-transform: capitalize;
+        }
+
+        .order form .box-container .box .input-box input:focus,
+        .order form .box-container .box .input-box textarea:focus {
+            background: var(--main-color);
+            border: var(--white);
+        }
+
+        .order form .box-container .box .input-box input:focus::placeholder,
+        .order form .box-container .box .input-box textarea:focus::placeholder {
+            color: var(--darker-gray);
+        }
+
+        .order form .box-container .box .input-box textarea {
+            height: 20rem;
+            resize: none;
+        }
+
+        .order form .box-container .box .input-box span {
+            color: var(--main-color);
+            font-size: 2rem;
+        }
+
+        .order form .box-container .box .input-box .map {
+            height: 20rem;
+            width: 100%;
+            margin: 1rem 0;
+            border: none;
+        }
+
+        .footer {
+            background: url(https://images.pexels.com/photos/3694711/pexels-photo-3694711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .footer .icons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 2rem;
+        }
+
+        .footer .icons-container .icons {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .footer .icons-container .icons i {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            background: var(--main-color);
+            color: var(--white);
+            margin-bottom: .5rem;
+            line-height: 5.8rem;
+            font-size: 2rem;
+        }
+
+        .footer .icons-container .icons h3 {
+            font-size: 2rem;
+            color: var(--black);
+            padding: 1rem 0;
+            text-transform: capitalize;
+        }
+
+        .footer .icons-container .icons p {
+            line-height: 1.5;
+            font-size: 1.7rem;
+            color: var(--darker-gray);
+            text-transform: none;
+        }
+
+        .footer .icons-container .icons .link {
+            font-size: 1.7rem;
+            line-height: 2rem;
+            color: var(--main-color);
+            padding: .5rem 0;
+            display: block;
+        }
+
+        .footer .icons-container .icons .link:hover {
+            color: var(--hover);
+            text-decoration: underline;
+        }
+
+        .footer .share {
+            margin: 2rem 0;
+        }
+
+        .footer .share a {
+            height: 6rem;
+            width: 6rem;
+            line-height: 5.8rem;
+            color: var(--white);
+            background: var(--main-color);
+            margin: 0 .3rem;
+            font-size: 2.5rem;
+        }
+
+        .footer .share a:hover {
+            background: var(--hover);
+        }
+
+        .footer .credit {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--black);
+            border-top: var(--border);
+        }
+
+        .footer .credit i {
+            color: var(--main-color);
+        }
+
+        .box:hover {
+            background-color: cadetblue;
+        }
+
+        .h3 {
+            font-weight: bold;
+        }
+
+        /* media queries */
+
+        @media (max-width: 991px) {
+
+            html {
+                font-size: 55%;
+            }
+
+            section {
+                padding: 3rem 2rem;
+            }
+
+            .home .slide .content {
+                text-align: left;
+                width: 50rem;
+                padding-left: 9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .header #menu-btn {
+                display: inline-block;
+            }
+
+            .fa-times {
+                transform: rotate(180deg);
+            }
+
+            .header .navbar {
+                position: absolute;
+                top: 99%;
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                border-top: var(--border);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            }
+
+            .header .navbar.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .header .navbar a {
+                display: block;
+                margin: 2rem;
+
+            }
+
+            .home .slide .content {
+                text-align: left;
+                width: 40rem;
+                padding-left: 9rem;
+            }
+
+            .home .slide .content h3 {
+                font-size: 4rem;
+            }
+
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+
+            .home .slide .content h3 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="header">
+
+        <a href="#" class="logo">
+            <i class="fas fa-ice-cream"></i>Ice cream
+        </a>
+
+        <nav class="navbar">
+            <a href="#">home</a>
+            <a href="#about">about</a>
+            <a href="#menu">menu</a>
+            <a href="#gallery">gallery</a>
+            <a href="#reviews">reviews</a>
+            <a href="#order">order</a>
+        </nav>
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+    </section>
+
+    <section id="home" class="home">
+
+
+
+        <div class="swiper home-slider">
+            <div class="swiper-wrapper">
+
+
+                <div class="swiper-slide slide"
+                    style="background: url('https://images.pexels.com/photos/8093184/pexels-photo-8093184.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat;">
+                    <div class="content">
+                        <h3>do you know how pleasure tastes?</h3>
+                        <a href="#" class="btn">get started</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide"
+                    style="background: url('https://images.pexels.com/photos/2027041/pexels-photo-2027041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat;">
+                    <div class="content">
+                        <h3>do you know how pleasure tastes?</h3>
+                        <a href="#" class="btn">get started</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide"
+                    style="background: url('https://images.pexels.com/photos/618915/pexels-photo-618915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat;">
+                    <div class="content">
+                        <h3>do you know how pleasure tastes?</h3>
+                        <a href="#" class="btn">get started</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+        </div>
+
+
+    </section>
+
+    <section id="about" class="about">
+        <h1 class="heading">about us</h1>
+        <div class="row">
+            <div class="image">
+                <img src="https://images.pexels.com/photos/5908284/pexels-photo-5908284.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="homemade sweets">
+            </div>
+
+            <div class="content">
+                <h3>homemade ice creams for you</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, cupiditate repellendus. Est
+                    tenetur.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus quibusdam animi facere, error
+                    itaque, dolore aliquid nihil ipsum corrupti dolores commodi exercitationem facilis omnis accusantium
+                    nostrum a assumenda alias? Suscipit!</p>
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <section id="menu" class="menu">
+
+        <h1 class="heading">our menu</h1>
+
+        <div class="box-container">
+
+
+            <div class="box">
+
+                <div class="image">
+                    <img src="42.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3 class="title">real strawberry ice cream</h3>
+                    <div class="price">140<span class="tips">140</span>
+                        <div class="sale">
+                            <span class="discount">110</span><span class="discount tips">110</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+
+                <div class="image">
+                    <img src="41.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3 class="title">real pulm ice cream</h3>
+                    <div class="price">140<span class="tips">140</span>
+                        <div class="sale">
+                            <span class="discount">110</span><span class="discount tips">110</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+
+                <div class="image">
+                    <img src="44.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3 class="title">real lemon ice cream</h3>
+                    <div class="price">140<span class="tips">140</span>
+                        <div class="sale">
+                            <span class="discount">110</span><span class="discount tips">110</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+
+                <div class="image">
+                    <img src="41.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3 class="title">real rasberry ice cream</h3>
+                    <div class="price">140<span class="tips">140</span>
+                        <div class="sale">
+                            <span class="discount">110</span><span class="discount tips">110</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+
+                <div class="image">
+                    <img src="42.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3 class="title">real chocolate ice cream</h3>
+                    <div class="price">140<span class="tips">140</span>
+                        <div class="sale">
+                            <span class="discount">110</span><span class="discount tips">110</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="box">
+
+                <div class="image">
+                    <img src="https://th.bing.com/th/id/OIP.Y_PrWB7YiZCTwwq0swOSnAHaGi?pid=ImgDet&w=512&h=452&rs=1"
+                        alt="">
+                </div>
+                <div class="content">
+                    <h3 class="title">real blueberry ice cream</h3>
+                    <div class="price">140<span class="tips">140</span>
+                        <div class="sale">
+                            <span class="discount">110</span><span class="discount tips">110</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h1 class="heading">our gallery</h1>
+
+        <div class="gallery-container">
+
+
+            <a href="https://images.pexels.com/photos/2161649/pexels-photo-2161649.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="box">
+
+                <img src="https://images.pexels.com/photos/2161649/pexels-photo-2161649.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="ice creams">
+                <div class="icon"><i class="fas fa-plus"></i></div>
+
+            </a>
+
+            <a href="https://images.pexels.com/photos/7761734/pexels-photo-7761734.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="box">
+
+                <img src="https://images.pexels.com/photos/7761734/pexels-photo-7761734.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="ice creams">
+                <div class="icon"><i class="fas fa-plus"></i></div>
+
+            </a>
+
+
+            <a href="https://images.pexels.com/photos/749102/pexels-photo-749102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="box">
+
+                <img src="https://images.pexels.com/photos/749102/pexels-photo-749102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="ice creams">
+                <div class="icon"><i class="fas fa-plus"></i></div>
+
+            </a>
+
+
+            <a href="https://images.pexels.com/photos/13010794/pexels-photo-13010794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="box">
+
+                <img src="https://images.pexels.com/photos/13010794/pexels-photo-13010794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="ice creams">
+                <div class="icon"><i class="fas fa-plus"></i></div>
+
+            </a>
+
+
+            <a href="https://images.pexels.com/photos/6412959/pexels-photo-6412959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="box">
+
+                <img src="https://images.pexels.com/photos/6412959/pexels-photo-6412959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="ice creams">
+                <div class="icon"><i class="fas fa-plus"></i></div>
+
+            </a>
+
+
+            <a href="https://images.pexels.com/photos/6412948/pexels-photo-6412948.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="box">
+
+                <img src="https://images.pexels.com/photos/6412948/pexels-photo-6412948.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="ice creams">
+                <div class="icon"><i class="fas fa-plus"></i></div>
+
+            </a>
+
+            <a href="https://images.pexels.com/photos/108370/pexels-photo-108370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="box">
+
+                <img src="https://images.pexels.com/photos/108370/pexels-photo-108370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="ice creams">
+                <div class="icon"><i class="fas fa-plus"></i></div>
+
+            </a>
+
+            <a href="https://images.pexels.com/photos/1200035/pexels-photo-1200035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="box">
+
+                <img src="https://images.pexels.com/photos/1200035/pexels-photo-1200035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="ice creams">
+                <div class="icon"><i class="fas fa-plus"></i></div>
+
+            </a>
+
+            <a href="https://images.pexels.com/photos/1352299/pexels-photo-1352299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="box">
+                <img src="https://images.pexels.com/photos/1352299/pexels-photo-1352299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="ice creams">
+                <div class="icon"><i class="fas fa-plus"></i></div>
+            </a>
+        </div>
+    </section>
+    <section id="reviews" class="reviews">
+        <h1 class="heading">clients say..</h1>
+        <div class="swiper reviews-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ullam accusantium voluptatum
+                        totam, nostrum iste, corrupti deserunt excepturi, incidunt corporis soluta eos atque quia hic ad
+                        aliquam rerum. Quis, reprehenderit?</p>
+                    <img src="7.jpg" alt="person image">
+                    <h3>client 1</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide slide">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ullam accusantium voluptatum
+                        totam, nostrum iste, corrupti deserunt excepturi, incidunt corporis soluta eos atque quia hic ad
+                        aliquam rerum. Quis, reprehenderit?</p>
+                    <img src="7.jpg" alt="person image">
+                    <h3>client 2</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <section id="order" class="order">
+        <h1 class="heading">order now</h1>
+        <form action="">
+            <div class="box-container">
+                <div class="box">
+                    <div class="input-box">
+                        <span>full name</span>
+                        <input type="text" placeholder="enter your name">
+                    </div>
+                    <div class="input-box">
+                        <span>ice cream name</span>
+                        <input type="text" placeholder="ice cream you want">
+                    </div>
+                    <div class="input-box">
+                        <span>order details</span>
+                        <input type="text" placeholder="topings">
+                    </div>
+                    <div class="input-box">
+                        <span>your address</span>
+                        <textarea name="" placeholder="enter your address" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="input-box">
+                        <span>phone number</span>
+                        <input type="number" placeholder="enter your phone number" min="0">
+                    </div>
+                    <div class="input-box">
+                        <span>quantity</span>
+                        <input type="number" placeholder="how many you want" min="1">
+                    </div>
+                    <div class="input-box">
+                        <span>when you want</span>
+                        <input type="datetime-local">
+                    </div>
+                    <div class="input-box">
+                        <span>our address</span>
+                        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7566.546862622411!2d73.86996777770997!3d18.5165419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c04f1214dbd7%3A0x1b1c71a7f28a453f!2sPasteur%20Ice-Cream%20%26%20Snacks%20Center!5e0!3m2!1sen!2sin!4v1680974824637!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="btn" value="order now">
+        </form>
+    </section>
+    <div class="footer">
+        <div class="icons-container">
+            <div class="icons">
+                <i class="fas fa-map"></i>
+                <h3>address</h3>
+                <p> Pasteur Ice Cream Parlour Pune, MG Road; View reviews, menu, contact, location, and more for Pasteur
+                    Ice Cream Parlour Restaurant.</p>
+            </div>
+            <div class="icons">
+                <i class="fas fa-phone"></i>
+                <h3>phone</h3>
+                <p>+919767475332</p>
+            </div>
+            <div class="icons">
+                <i class="fas fa-envelope"></i>
+                <h3>email</h3>
+                <a href="#" class="link">shiv123@gmail.com</a>
+            </div>
+            <div class="icons">
+                <i class="fas fa-clock"></i>
+                <h3>opening hours</h3>
+                <p>monday-friday: 2:00 pm - 6:00 pm <br> Saturday 2:00pm- 4:00pm</p>
+            </div>
+        </div>
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+        </div>
+        <div class="credit">
+            Made with <i class="fa-solid fa-heart"></i> by <span>Shiv Bakle</span> | all rights reserved &copy; 2023
+        </div>
+    </div>
+    <script>
+        let navbar = document.querySelector('.header .navbar');
+        let menuBtn = document.querySelector('.header #menu-btn');
+
+        menuBtn.onclick = () => {
+            menuBtn.classList.toggle('fa-times');
+            navbar.classList.toggle('active');
+        }
+
+        window.onscroll = () => {
+            menuBtn.classList.remove('fa-times');
+            navbar.classList.remove('active');
+        }
+
+
+        var swiper = new Swiper(".home-slider", {
+            grabCursor: true,
+            loop: true,
+            centeredSlides: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+        });
+
+        lightGallery(document.querySelector('.gallery .gallery-container'));
+
+
+        var swiper = new Swiper(".reviews-slider", {
+            grabCursor: true,
+            loop: true,
+            spaceBetween: 20,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                991: {
+                    slidesPerView: 3,
+                },
+            }
+        });
+    </script>
+</body>
+
+</html>
